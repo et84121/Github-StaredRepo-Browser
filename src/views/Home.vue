@@ -33,6 +33,7 @@
           class="text-red-500"
           href="https://github.com/settings/tokens"
           target="_blank"
+          rel="noopener noreferrer"
         >
           Github Personal access tokens
         </a>
@@ -56,7 +57,10 @@
       </div>
 
       <div class="flex flex-col justify-center">
-        <RepoProfile :repos="state.staredRepos"></RepoProfile>
+        <RepoProfile
+          v-if="state.staredRepos"
+          :repos="state.staredRepos"
+        ></RepoProfile>
       </div>
     </div>
   </div>

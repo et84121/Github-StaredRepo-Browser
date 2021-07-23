@@ -19,6 +19,7 @@ const createColumns = (): TableColumns<Repository> => [
             class="hover:text-green-300 text-green-500 "
             href={row.homepageUrl}
             target="_blank"
+            rel="noopener noreferrer"
           >
             {row.name}
           </a>
@@ -39,6 +40,7 @@ const createColumns = (): TableColumns<Repository> => [
             class="hover:text-green-300 text-green-500"
             href={row.url}
             target="_blank"
+            rel="noopener noreferrer"
           >
             <p>{owner}/</p>
             <p>{name}</p>
