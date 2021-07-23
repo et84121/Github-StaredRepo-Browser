@@ -33,7 +33,7 @@ jobs:
       - name: install package and buildup
         run: |
           npm install
-          npm run build
+          npm run ghPageBuild
       
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.4

@@ -18,6 +18,14 @@
         >
           {{ is_PAT_in_store() ? "已存在" : "新增" }}
         </n-button>
+        <n-button
+          class="py-2 px-4"
+          type="primary"
+          @click="clearPAT"
+          :disabled="!is_PAT_in_store()"
+        >
+          {{ "刪除" }}
+        </n-button>
       </div>
       <p class="text-gray-500 text-sm">
         Fill with your
@@ -70,11 +78,14 @@ export default defineComponent({
   setup() {
     const store = useMainStore();
     const loadingBar = useLoadingBar();
-    const PAT = ref("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");
+    const PAT = ref(process.env["VUE_APP_PAT"] || "");
     const setPAT = () => {
       store.$patch({ PAT: PAT.value });
     };
-
+    function clearPAT() {
+      PAT.value = "";
+      store.$patch({ PAT: "" });
+    }
     const user = reactive({});
 
     const getData = async () => {
@@ -104,7 +115,15 @@ export default defineComponent({
 
     const is_PAT_in_store = () => store.PAT !== "";
 
-    return { PAT, setPAT, is_PAT_in_store, getData, user, state: store.$state };
+    return {
+      PAT,
+      setPAT,
+      clearPAT,
+      is_PAT_in_store,
+      getData,
+      user,
+      state: store.$state,
+    };
   },
 });
 </script>
