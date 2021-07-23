@@ -1,0 +1,2 @@
+(self["webpackChunkgithub_star_repo"]=self["webpackChunkgithub_star_repo"]||[]).push([[443],{9211:function(t,n,u){"use strict";u.r(n),u.d(n,{default:function(){return i}});var r=u(6252);const e={class:"about"},s=(0,r.Wm)("h1",null,"This is an about page",-1);function a(t,n){return(0,r.wg)(),(0,r.j4)("div",e,[s])}const c={};c.render=a;var i=c}}]);
+//# sourceMappingURL=about.9477ddb5.js.map
