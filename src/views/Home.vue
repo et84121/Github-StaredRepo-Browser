@@ -56,7 +56,7 @@
         <UserProfile v-if="state.user" :user="state.user"></UserProfile>
       </div>
 
-      <div class="flex flex-col justify-center">
+      <div class="my-2 flex flex-col justify-center">
         <RepoProfile
           v-if="state.staredRepos"
           :repos="state.staredRepos"

@@ -13,20 +13,34 @@ const createColumns = (): TableColumns<Repository> => [
     title: "Name",
     key: "name",
     render(row) {
-      if (row.homepageUrl) {
-        return (
-          <a
-            class="hover:text-green-300 text-green-500 "
-            href={row.homepageUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {row.name}
-          </a>
-        );
-      } else {
-        return <h3>{row.name}</h3>;
-      }
+      return (
+        <n-tooltip trigger="hover" placement="top-start">
+          {{
+            default: () => <p>{row.description}</p>,
+            trigger: () => (
+              <div class="flex flex-row gap-2 justify-between align-middle">
+                <n-image
+                  width="40"
+                  object-fit="contain"
+                  src={row.openGraphImageUrl}
+                />
+                {row.homepageUrl ? (
+                  <a
+                    class="hover:text-green-300 text-green-500 "
+                    href={row.homepageUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {row.name}
+                  </a>
+                ) : (
+                  <h3>{row.name}</h3>
+                )}
+              </div>
+            ),
+          }}
+        </n-tooltip>
+      );
     },
   },
   {
@@ -62,7 +76,7 @@ const createColumns = (): TableColumns<Repository> => [
     render(row) {
       return <p>{new Date(row.createdAt).toLocaleDateString()}</p>;
     },
-    sortOrder: "ascend",
+    defaultSortOrder: "ascend",
     sorter: "default",
   },
   {
@@ -71,28 +85,24 @@ const createColumns = (): TableColumns<Repository> => [
     render(row) {
       return <p>{new Date(row.updatedAt).toLocaleDateString()}</p>;
     },
-    sortOrder: "ascend",
-    sorter: "default",
   },
   {
     title: "forkCount",
     key: "forkCount",
-    sortOrder: "ascend",
+    defaultSortOrder: false,
     sorter: "default",
   },
   {
     title: "diskUsage",
     key: "diskUsage",
+    defaultSortOrder: false,
+    sorter: "default",
   },
   {
     title: "stargazerCount",
     key: "stargazerCount",
-    sortOrder: "ascend",
+    defaultSortOrder: false,
     sorter: "default",
-  },
-  {
-    title: "openGraphImageUrl",
-    key: "openGraphImageUrl",
   },
 ];
 
@@ -133,8 +143,8 @@ export default defineComponent({
         columns={this.columns}
         data={this.tableData}
         pagination={this.pagination}
-        max-height="500px"
         scroll-x="1200"
+        max-height="100%"
         virtual-scroll
       />
     );
