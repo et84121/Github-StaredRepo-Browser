@@ -144,9 +144,13 @@ export default defineComponent({
     const repos = store.staredRepos;
 
     function getTimeBound(repos: Repository[], prop: keyof Repository) {
-      const min = Math.min(...repos.map((r) => new Date(r[prop]).getTime()));
-      const max = Math.max(...repos.map((r) => new Date(r[prop]).getTime()));
-      return [min, max];
+      if (repos.length !== 0) {
+        const min = Math.min(...repos.map((r) => new Date(r[prop]).getTime()));
+        const max = Math.max(...repos.map((r) => new Date(r[prop]).getTime()));
+        return [min, max];
+      } else {
+        return [new Date().getTime(), new Date().getTime()];
+      }
     }
 
     const defaultCreateDateFilterRange = {
