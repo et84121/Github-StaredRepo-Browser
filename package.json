@@ -43,7 +43,7 @@
     "prettier": "^2.2.1",
     "sass": "^1.32.7",
     "sass-loader": "^11.0.1",
-    "typescript": "beta"
+    "typescript": "^4.3.5"
   },
   "eslintConfig": {
     "root": true,
