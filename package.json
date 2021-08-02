@@ -16,13 +16,13 @@
     "@vueuse/integrations": "^5.1.4",
     "autoprefixer": "^10.3.1",
     "core-js": "^3.8.3",
+    "flexsearch": "^0.7.21",
     "naive-ui": "^2.15.6",
-    "pinia": "^2.0.0-beta.5",
-    "pinia-plugin-persist": "^0.0.2",
+    "pinia": "beta",
     "postcss": "^8.3.6",
     "register-service-worker": "^1.7.2",
     "tailwindcss": "^2.2.6",
-    "vue": "^3.0.4",
+    "vue": "^3.2.0-0",
     "vue-router": "^4.0.3"
   },
   "devDependencies": {
@@ -34,7 +34,7 @@
     "@vue/cli-plugin-router": "~5.0.0-beta.2",
     "@vue/cli-plugin-typescript": "~5.0.0-beta.2",
     "@vue/cli-service": "~5.0.0-beta.2",
-    "@vue/compiler-sfc": "^3.0.4",
+    "@vue/compiler-sfc": "^3.2.0-0",
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/eslint-config-typescript": "^7.0.0",
     "eslint": "^7.20.0",
@@ -43,7 +43,7 @@
     "prettier": "^2.2.1",
     "sass": "^1.32.7",
     "sass-loader": "^11.0.1",
-    "typescript": "~4.1.5"
+    "typescript": "beta"
   },
   "eslintConfig": {
     "root": true,
@@ -60,7 +60,11 @@
     "parserOptions": {
       "ecmaVersion": 2020
     },
-    "rules": {}
+    "rules": {
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "off",
+      "@typescript-eslint/ban-ts-comment": "off"
+    }
   },
   "browserslist": [
     "> 1%",

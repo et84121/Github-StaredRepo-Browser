@@ -1,6 +1,6 @@
 import { createPinia, defineStore } from "pinia";
 import piniaPersist from "./pinia-plugin-persist";
-import { Maybe, Repository } from "@octokit/graphql-schema";
+import { Repository } from "@octokit/graphql-schema";
 export const pinia = createPinia();
 pinia.use(piniaPersist);
 export const useMainStore = defineStore({
@@ -15,12 +15,12 @@ export const useMainStore = defineStore({
       id: string;
       company: string;
     } | null;
-    staredRepos: Repository[] | null;
+    staredRepos: Repository[];
   } {
     return {
       PAT: "",
       user: null,
-      staredRepos: null,
+      staredRepos: [],
     };
   },
   persist: {

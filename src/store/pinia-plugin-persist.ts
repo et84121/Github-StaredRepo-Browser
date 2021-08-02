@@ -32,6 +32,7 @@ const updateStorage = (strategy: PersistStrategy, store: Store) => {
 
   if (strategy.paths) {
     const partialState = strategy.paths.reduce((finalObj, key) => {
+      // @ts-ignore
       finalObj[key] = store.$state[key];
       return finalObj;
     }, {} as PartialState);
